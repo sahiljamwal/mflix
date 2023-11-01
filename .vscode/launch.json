@@ -5,13 +5,16 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch server",
-      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "name": "nodemon",
       "program": "${workspaceFolder}\\dist\\index.js",
+      "request": "launch",
+      "restart": true,
+      "runtimeExecutable": "nodemon",
+      "skipFiles": ["<node_internals>/**"],
       "envFile": "${workspaceFolder}/.env",
-      "outFiles": ["${workspaceFolder}/**/*.js"]
+      "type": "node"
     }
   ]
 }

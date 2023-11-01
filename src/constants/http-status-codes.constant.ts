@@ -1,0 +1,6 @@
+export const HTTP_CODES = {
+  INTERNAL_SERVER_ERROR: 500,
+  OK: 200,
+  CREATED: 201,
+  BAD_REQUEST: 400,
+};

@@ -17,6 +17,7 @@ app.use(
 app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: false }));
+app.use(express.static("client/dist"));
 
 app.use(
   morgan((tokens, req, res) => {

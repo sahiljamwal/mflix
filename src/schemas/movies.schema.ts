@@ -23,10 +23,11 @@ const listFiltersSchema = Joi.array()
 export const querySchema = Joi.object().keys({
   pageNum: Joi.number().min(1).default(1).optional(),
   pageSize: Joi.number()
-    .optional()
+    .default(10)
     .custom((value, _helpers) =>
-      !value || (value >= 5 && value <= 100) ? value : 5
-    ),
+      !value || (value >= 10 && value <= 100) ? value : 10
+    )
+    .optional(),
 });
 
 export const bodySchema = Joi.object().keys({

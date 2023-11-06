@@ -15,4 +15,10 @@ export default class MoviesStorage {
       .limit(pageSize)
       .lean();
   };
+
+  getAllMoviesCount = async (queryOptions: IFindQueryOptions<IMovies>) => {
+    const { filter } = queryOptions;
+
+    return this._model.countDocuments(filter);
+  };
 }

@@ -7,11 +7,14 @@ export default class MoviesBiz {
 
   getAllMovies = async (request: IQueryRequest) => {
     try {
-      const movies = await this._moviesStorageObj.getAllMovies(
-        getMoviesPaginationQuery(request)
-      );
+      const [movies, moviesCount] = await Promise.all([
+        this._moviesStorageObj.getAllMovies(getMoviesPaginationQuery(request)),
+        this._moviesStorageObj.getAllMoviesCount(
+          getMoviesPaginationQuery(request)
+        ),
+      ]);
 
-      return movies;
+      return { meta: { count: moviesCount }, data: movies };
     } catch (err) {
       throw err;
     }

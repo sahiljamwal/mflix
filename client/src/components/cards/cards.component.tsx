@@ -14,7 +14,7 @@ const Card = ({ poster, title, imdb }: ICardProps) => {
     <MUICard style={{ maxWidth: 345 }}>
       <CardMedia
         component={"img"}
-        src={poster || defaultPoster}
+        src={poster ?? defaultPoster}
         alt={title}
         style={{ objectFit: "cover", height: 140, width: "100%" }}
       />

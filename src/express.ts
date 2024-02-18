@@ -7,7 +7,14 @@ import apiRouter from "./routes";
 
 const app = express();
 
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https: data:"],
+    },
+  })
+);
 app.use(
   compression({
     filter: (req: Request, res: Response) =>
